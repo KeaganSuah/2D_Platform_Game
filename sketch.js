@@ -30,7 +30,7 @@ function setup() {
   canyon = { x_pos: 645, y_pos: 500, width: 100 };
   smallTree = { x_pos: 310, y_pos: 265 };
   bigTree = { x_pos: 100, y_pos: 230 };
-  collectableShoe = { x_pos: 370, y_pos: 420, size: 50 };
+  collectableShoe1 = { x_pos: 770, y_pos: 420, size: 50, isFound: false };
   rocksInSoil = { x_pos: 165, y_pos: 520 };
   mountain = { x_pos: width / 2, y_pos: height / 2 };
 
@@ -50,7 +50,7 @@ function draw() {
   // tree
   treeDesign();
   // cinderella shoe
-  shoeDesign();
+  shoeDesign(collectableShoe1);
   // chracter design
 
   //draw the canyon
@@ -100,6 +100,30 @@ function draw() {
     isJumping = false;
   }
 
+  // Player collecting collectable
+  if (
+    dist(
+      collectableShoe1.x_pos,
+      collectableShoe1.y_pos,
+      gameChar_x,
+      gameChar_y
+    ) < 30
+  ) {
+    collectableShoe1.isFound = true;
+  }
+
+  // Player falling into cayon
+  if (
+    gameChar_x > canyon.x_pos - canyon.width / 2 &&
+    gameChar_x < canyon.x_pos + canyon.width / 2 &&
+    gameChar_y >= floorPos_y
+  ) {
+    isPlummeting = true;
+    isRight = false;
+    isLeft = false;
+    gameChar_y += 5;
+  }
+
   ///////////INTERACTION CODE//////////
   //Put conditional statements to move the game character below here
 }
@@ -111,11 +135,15 @@ function keyPressed() {
   //open up the console to see how these work
   console.log("keyPressed: " + key);
   console.log("keyPressed: " + keyCode);
-  if (key.toLowerCase() == "a") {
+  if (key.toLowerCase() == "a" && isPlummeting != true) {
     isLeft = true;
-  } else if (key.toLowerCase() == "d") {
+  } else if (key.toLowerCase() == "d" && isPlummeting != true) {
     isRight = true;
-  } else if (key.toLowerCase() == "w" && isFalling != true) {
+  } else if (
+    key.toLowerCase() == "w" &&
+    isFalling != true &&
+    isPlummeting != true
+  ) {
     console.log(isJumping);
     isJumping = true;
     console.log(isJumping);
@@ -416,109 +444,111 @@ function canyonDesgin() {
   ellipse(canyon.x_pos, canyon.y_pos, canyon.width, 10);
 }
 
-function shoeDesign() {
-  //5. a collectable token - eg. a jewel, fruit, coins
-  fill(0, 246, 255, 200);
-  rect(collectableShoe.x_pos - 17, collectableShoe.y_pos - 8, 6, 20);
-  triangle(
-    collectableShoe.x_pos - 12,
-    collectableShoe.y_pos - 5,
-    collectableShoe.x_pos - 12,
-    collectableShoe.y_pos,
-    collectableShoe.x_pos - 8,
-    collectableShoe.y_pos - 4
-  );
-  beginShape();
-  vertex(collectableShoe.x_pos - 16, collectableShoe.y_pos - 7);
-  bezierVertex(
-    collectableShoe.x_pos - 17,
-    collectableShoe.y_pos - 7,
-    collectableShoe.x_pos - 20,
-    collectableShoe.y_pos - 13,
-    collectableShoe.x_pos - 13,
-    collectableShoe.y_pos - 26
-  );
-  vertex(collectableShoe.x_pos - 6, collectableShoe.y_pos - 17);
-  vertex(collectableShoe.x_pos - 16, collectableShoe.y_pos - 7);
-  endShape();
-  triangle(
-    collectableShoe.x_pos - 7,
-    collectableShoe.y_pos - 3,
-    collectableShoe.x_pos + 4,
-    collectableShoe.y_pos + 2,
-    collectableShoe.x_pos + 4,
-    collectableShoe.y_pos - 9
-  );
-  beginShape();
-  vertex(collectableShoe.x_pos + 15, collectableShoe.y_pos - 1);
-  bezierVertex(
-    collectableShoe.x_pos + 15,
-    collectableShoe.y_pos - 1,
-    collectableShoe.x_pos + 24,
-    collectableShoe.y_pos,
-    collectableShoe.x_pos + 24,
-    collectableShoe.y_pos + 8
-  );
-  bezierVertex(
-    collectableShoe.x_pos + 24,
-    collectableShoe.y_pos + 8,
-    collectableShoe.x_pos + 24,
-    collectableShoe.y_pos + 12,
-    collectableShoe.x_pos + 18,
-    collectableShoe.y_pos + 11
-  );
-  bezierVertex(
-    collectableShoe.x_pos + 18,
-    collectableShoe.y_pos + 11,
-    collectableShoe.x_pos + 11,
-    collectableShoe.y_pos + 11,
-    collectableShoe.x_pos + 17,
-    collectableShoe.y_pos + 11
-  );
-  vertex(collectableShoe.x_pos + 9, collectableShoe.y_pos + 6);
-  endShape();
-  triangle(
-    collectableShoe.x_pos,
-    collectableShoe.y_pos - 1,
-    collectableShoe.x_pos + 6,
-    collectableShoe.y_pos + 11,
-    collectableShoe.x_pos + 17,
-    collectableShoe.y_pos + 11
-  );
-  fill(0, 195, 255, 200);
-  triangle(
-    collectableShoe.x_pos - 6,
-    collectableShoe.y_pos - 17,
-    collectableShoe.x_pos - 16,
-    collectableShoe.y_pos - 7,
-    collectableShoe.x_pos - 7,
-    collectableShoe.y_pos - 3
-  );
-  triangle(
-    collectableShoe.x_pos + 15,
-    collectableShoe.y_pos - 1,
-    collectableShoe.x_pos + 4,
-    collectableShoe.y_pos + 2,
-    collectableShoe.x_pos + 4,
-    collectableShoe.y_pos - 9
-  );
-  fill(0, 160, 255, 200);
-  triangle(
-    collectableShoe.x_pos - 7,
-    collectableShoe.y_pos - 3,
-    collectableShoe.x_pos - 6,
-    collectableShoe.y_pos - 17,
-    collectableShoe.x_pos + 4,
-    collectableShoe.y_pos - 9
-  );
-  triangle(
-    collectableShoe.x_pos + 15,
-    collectableShoe.y_pos - 1,
-    collectableShoe.x_pos + 4,
-    collectableShoe.y_pos + 2,
-    collectableShoe.x_pos + 10,
-    collectableShoe.y_pos + 6
-  );
+function shoeDesign(collectableShoe) {
+  if (collectableShoe.isFound == false) {
+    //5. a collectable token - eg. a jewel, fruit, coins
+    fill(0, 246, 255, 200);
+    rect(collectableShoe.x_pos - 17, collectableShoe.y_pos - 8, 6, 20);
+    triangle(
+      collectableShoe.x_pos - 12,
+      collectableShoe.y_pos - 5,
+      collectableShoe.x_pos - 12,
+      collectableShoe.y_pos,
+      collectableShoe.x_pos - 8,
+      collectableShoe.y_pos - 4
+    );
+    beginShape();
+    vertex(collectableShoe.x_pos - 16, collectableShoe.y_pos - 7);
+    bezierVertex(
+      collectableShoe.x_pos - 17,
+      collectableShoe.y_pos - 7,
+      collectableShoe.x_pos - 20,
+      collectableShoe.y_pos - 13,
+      collectableShoe.x_pos - 13,
+      collectableShoe.y_pos - 26
+    );
+    vertex(collectableShoe.x_pos - 6, collectableShoe.y_pos - 17);
+    vertex(collectableShoe.x_pos - 16, collectableShoe.y_pos - 7);
+    endShape();
+    triangle(
+      collectableShoe.x_pos - 7,
+      collectableShoe.y_pos - 3,
+      collectableShoe.x_pos + 4,
+      collectableShoe.y_pos + 2,
+      collectableShoe.x_pos + 4,
+      collectableShoe.y_pos - 9
+    );
+    beginShape();
+    vertex(collectableShoe.x_pos + 15, collectableShoe.y_pos - 1);
+    bezierVertex(
+      collectableShoe.x_pos + 15,
+      collectableShoe.y_pos - 1,
+      collectableShoe.x_pos + 24,
+      collectableShoe.y_pos,
+      collectableShoe.x_pos + 24,
+      collectableShoe.y_pos + 8
+    );
+    bezierVertex(
+      collectableShoe.x_pos + 24,
+      collectableShoe.y_pos + 8,
+      collectableShoe.x_pos + 24,
+      collectableShoe.y_pos + 12,
+      collectableShoe.x_pos + 18,
+      collectableShoe.y_pos + 11
+    );
+    bezierVertex(
+      collectableShoe.x_pos + 18,
+      collectableShoe.y_pos + 11,
+      collectableShoe.x_pos + 11,
+      collectableShoe.y_pos + 11,
+      collectableShoe.x_pos + 17,
+      collectableShoe.y_pos + 11
+    );
+    vertex(collectableShoe.x_pos + 9, collectableShoe.y_pos + 6);
+    endShape();
+    triangle(
+      collectableShoe.x_pos,
+      collectableShoe.y_pos - 1,
+      collectableShoe.x_pos + 6,
+      collectableShoe.y_pos + 11,
+      collectableShoe.x_pos + 17,
+      collectableShoe.y_pos + 11
+    );
+    fill(0, 195, 255, 200);
+    triangle(
+      collectableShoe.x_pos - 6,
+      collectableShoe.y_pos - 17,
+      collectableShoe.x_pos - 16,
+      collectableShoe.y_pos - 7,
+      collectableShoe.x_pos - 7,
+      collectableShoe.y_pos - 3
+    );
+    triangle(
+      collectableShoe.x_pos + 15,
+      collectableShoe.y_pos - 1,
+      collectableShoe.x_pos + 4,
+      collectableShoe.y_pos + 2,
+      collectableShoe.x_pos + 4,
+      collectableShoe.y_pos - 9
+    );
+    fill(0, 160, 255, 200);
+    triangle(
+      collectableShoe.x_pos - 7,
+      collectableShoe.y_pos - 3,
+      collectableShoe.x_pos - 6,
+      collectableShoe.y_pos - 17,
+      collectableShoe.x_pos + 4,
+      collectableShoe.y_pos - 9
+    );
+    triangle(
+      collectableShoe.x_pos + 15,
+      collectableShoe.y_pos - 1,
+      collectableShoe.x_pos + 4,
+      collectableShoe.y_pos + 2,
+      collectableShoe.x_pos + 10,
+      collectableShoe.y_pos + 6
+    );
+  }
 }
 
 ///////////////////////////////////////////
