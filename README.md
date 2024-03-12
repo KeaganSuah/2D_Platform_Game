@@ -1,6 +1,5 @@
 # Cinderella Game - 2D Platform Game using p5.js 🎮
 
-![Kizek](main/static/firstplace.JPG)
 ## Overview
 In the development of this game project, I aimed to create an engaging 2D platform game inspired by classics like "Mario." The project encompasses various extensions grouped into categories, including aesthetics, mechanics, and diversity.
 
@@ -26,6 +25,7 @@ While the project was overall successful, one notable challenge was implementing
 Throughout the completion of this game project, I gained valuable programming skills. Learning when to apply the factory pattern and constructor function enhanced code organization and efficiency. The project served as an excellent learning experience, contributing to both technical and design skill development.
 
 ## Screenshots/GIFs
+![GamePlay](screenshot.png)
 
 ## Getting Started, Playing Game
 You may view and play the game on my personal website! Recommend to play on desktop.
