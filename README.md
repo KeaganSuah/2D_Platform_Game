@@ -1,50 +1,42 @@
-### The Game Project 3 – Game Character interaction
+Cinderella Game - 2D Platform Game using p5.js
 
-Now to add some proper interaction to your game.
+Overview
+In the development of this game project, I aimed to create an engaging 2D platform game inspired by classics like "Mario." The project encompasses various extensions grouped into categories, including aesthetics, mechanics, and diversity.
 
-1. Inspect the code [0 marks]
+Aesthetics
+Custom Graphic Designs: The game features custom graphics designed with a Cinderella theme, creating an aesthetically pleasing experience targeted at a younger audience.
+Death Animation: The death animation displays a splash screen indicating the player's remaining lives, reminiscent of the popular game "Mario."
+Instruction and Starting Screens: Clear instructions and starting screens are incorporated to provide players with guidance, ensuring a smooth transition into the game.
+Mechanics
+Jump Acceleration: Enhanced jump physics with acceleration for a more realistic and animated gaming experience.
+Sound Effects: Various sound effects for walking on different surfaces and platforms, adding an auditory dimension to the game.
+Countdown Timer, Moving Platform, and Enemy: Introduced to intensify the gaming experience, bringing excitement and challenge to the gameplay.
+Diversity
+Multiple Levels: Designed different levels to offer gamers varying degrees of challenges, ensuring a diverse and engaging experience.
+Pause Feature: Implemented a pause feature for players to take a break and resume gameplay at their convenience.
+Music Controls: Players can control background music, providing flexibility and customization options.
+Challenges and Learning
+While the project was overall successful, one notable challenge was implementing the "translate" function in p5.js. This challenge presented an opportunity for skill development and problem-solving, enabling the addition of the side scroll function and the game title "Cinderella Game" to the introduction page.
 
-<!-- 2. Create variables for interaction [1 marks]
-	- Declare four variables: `isLeft`, `isRight`, `isFalling` and `isPlummeting`
-	- Initialise each of them to `false`. These variables will be used to animate your game
-	 character. -->
+Throughout the completion of this game project, I gained valuable programming skills. Learning when to apply the factory pattern and constructor function enhanced code organization and efficiency. The project served as an excellent learning experience, contributing to both technical and design skill development.
 
-<!-- 3. Implement left and right for keyPressed [1 marks]
-	- Inside the function keyPressed write two if statements to make isLeft = true when the 'a' key is pressed and isRight = true when the 'd' key is pressed.
-	- Test your conditional statements  using `console.log()` to see the values of isLeft and isRight
-		- HINT: look up the difference between keyCode and key to help you decide which variable you need to use. -->
+Screenshots/GIFs
+Include visuals to showcase the game features, aesthetics, and mechanics.
 
-<!-- 4. Implement left and right for keyReleased [1 marks]
-	- Inside the function keyReleased write two if statements to make isLeft = false when the 'a' key is released and isRight = false when the 'd' key is released, 
-	- Test your conditional statements using console.log() to see the values of isLeft and isRight -->
+Getting Started
+Provide instructions on how to run the game locally. Include any dependencies or prerequisites.
 
-<!-- 5. Add game character [1 marks]
-	- Add your game character code from part 2 to this sketch.
-	- You need to place each block of character code within the appropriate `if` statement so that when the character is animated the correct image will be drawn. -->
+bash
+Copy code
+# Clone the repository
+git clone https://github.com/your-username/Cinderella-Game.git
 
-<!-- 6. Make the game character move left and right [2 marks]
-	- In the draw function add two if statements to make the character move left when isLeft is true and move right when isRight is true
-	- Test that your character moves left, right, and stops correctly when the a and s keys are pressed and released.
-        - HINT: you need to use the isLeft, isRight, and gameChar_x variables. -->
+# Navigate to the project directory
+cd Cinderella-Game
 
-<!-- 7. Make the game character jump [2 marks]
-	- Add another if statement within keyPressed that checks when the 'w' key is pressed.
-	- When 'w' is pressed subtract 100 from gameChar_y . This will make the character jump up in the air (don't worry about it falling just yet) -->
+# Open index.html in your preferred browser
+Acknowledgments
+Acknowledge any third-party libraries, assets, or tutorials that you used in your project.
 
-<!-- 8. Add gravity [2 marks]
-    - Now it's time to make our game character fall down to the ground again
-    - Add an if statement within the draw function to detect when the character is  jumping above the ground. 
-        - HINT: gameChar_y is less than floorPos_y when this is happening.
-    - As the action of the if statement you should make the character fall towards the ground. 
-    - Do this by incrementing gameChar_y
-    - At the same time set isFalling to true so that the falling image of the character appears
-    - Finally add an else action to your conditional statement which sets isFalling to false. This will stop the falling image from appearing when your character is touching the ground again -->
-
-<!-- 9. Prevent double jumps [1 marks]
-    - Now adjust the code inside keyPressed tp prevent the character from jumping when it already in the air.
-        - HINT: isFalling is useful here  -->
-
-Help it's not working !
-    - Okay this is not a time to hack your way out of the problem. 
-    - Instead go back through the instructions one stage at a time and check that you've done exactly what each stage tells you to.
-    - Try commenting out the code from the later stages and testing the earlier stages to make sure that they run correctly.
+License
+Specify the license under which your project is distributed (e.g., MIT License).
