@@ -38,6 +38,9 @@ You may view and play the game on my personal website! Recommend to play on desk
 ## Acknowledgments
 Would like to thank Coursera, University of London for allowing me to get started using Javascript
 
+## License
+Sound effects obtained from https://www.zapsplat.com
+
 Feel free to reach out for any inquiries or collaborations!
 
 suahkeagan@gmail.com
