@@ -30,9 +30,12 @@ Throughout the completion of this game project, I gained valuable programming sk
 You may view and play the game on my personal website! Recommend to play on desktop.
 
 ## Technologies Used
-- HTML
-- JavaScript
-- p5.JS
+- p5.js
+- HTML/CSS
+- VSCode
+- Git/GitHub
+- Game Development Concepts
+- UI/UX Design
 
 ## Acknowledgments
 Would like to thank Coursera, University of London for allowing me to get started using Javascript
