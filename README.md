@@ -29,13 +29,15 @@ Throughout the completion of this game project, I gained valuable programming sk
 ## Getting Started, Playing Game
 You may view and play the game on my personal website! Recommend to play on desktop.
 
-## Technologies and Skills Used
+## Technologies
 - JavaScript
-- Game Development (2D Platform Games)
 - p5.js (Creative Coding Library)
 - HTML/CSS (Frontend Development)
 - Visual Studio Code (VSCode)
 - Version Control (Git/GitHub)
+
+## Skills
+- Game Development (2D Platform Games)
 - UI/UX Design
 - Software Design Patterns (Factory Pattern, Constructor Functions)
 - Problem-solving and Debugging Skills
