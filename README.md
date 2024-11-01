@@ -40,7 +40,6 @@ You may view and play the game on my personal website! Recommend to play on desk
 - Game Development (2D Platform Games)
 - UI/UX Design
 - Software Design Patterns (Factory Pattern, Constructor Functions)
-- Problem-solving and Debugging Skills
 
 ## Acknowledgments
 Would like to thank Coursera, University of London for allowing me to get started using Javascript
